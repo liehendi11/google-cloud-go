@@ -70,7 +70,6 @@ func NewClientWithConfig(ctx context.Context, project, instance string, config C
 	}
 	// Default to a small connection pool that can be overridden.
 	o = append(o,
-		option.WithGRPCConnectionPool(4),
 		// Set the max size to correspond to server-side limits.
 		option.WithGRPCDialOption(grpc.WithDefaultCallOptions(grpc.MaxCallSendMsgSize(1<<28), grpc.MaxCallRecvMsgSize(1<<28))),
 		// TODO(grpc/grpc-go#1388) using connection pool without WithBlock
